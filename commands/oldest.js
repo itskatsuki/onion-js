@@ -1,23 +1,24 @@
-const Discord = require("discord.js")
+const Discord = require("discord.js");
 const bot = new Discord.Client();
 
-module.exposrts.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 
-    if(!message.guild) return message.channel.send(`This command can only be used in a server.`)
+  if(!message.guild) return message.channel.send(`I cannot execute this command in DMs`)
 
     let mem = message.guild.members.cache
-    .filter((m) => !m.user.bot)
-    .sort((a, b) => a.user.createdAt - b.user.createdAt)
-    .first();
+      .filter((m) => !m.user.bot)
+      .sort((a, b) => a.user.createdAt - b.user.createdAt)
+      .first();
+    const Embed = new Discord.MessageEmbed()
+    .setTitle(`Oldest Member in \`${message.guild.name}\``)
+    .setColor(`#ff8400`)
+    .setDescription(`The oldest user in **${message.guild.name}** is **${mem.user.tag}**`)
+    message.channel.send(Embed);
+  }
+        
 
-    const embed = new Discord.MessageEmbed()
-    .setColor(`#FF00FF`)
-    .setTitle(`Oldest Member in ${message.guild.name}!`)
-    .setDescription(`Oldest Member: **${mem.user.tag}** `)
-    message.channel.send(embed)
-}
 
-module.exports.help = {
-    name: 'oldest',
-    aliases: []
-}
+    module.exports.help = {
+        name: "oldest",
+        aliases: []
+    }
