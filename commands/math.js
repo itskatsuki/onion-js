@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const math = require('mathjs');
 
 module.exports.run = async (bot, message, args) => {
 
@@ -8,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     if(Response.length < 1) return message.channel.send("Please provide an expression after the command.")
 
     try {
-        const solved = math.evaluate(reason).toString();
+        const solved = evaluate(reason).toString();
         let calembed = new Discord.MessageEmbed()
         .setColor(`#ff8400`)
         .setTitle(`Math!`)
