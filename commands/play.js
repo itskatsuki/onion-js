@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args, ops) => {
 
 
 
-            const commandFile = require ("../playtube.js");
+            const commandFile = require ("../youtube.js");
             commandFile.run(bot, message, [songData1.video_url], ops);
             
             
