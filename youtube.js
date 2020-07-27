@@ -1,29 +1,36 @@
-const ytdl = require('ytdl-core')
+const ytdl = require('ytdl-core');
 
 module.exports.run = async (bot, message, args) => {
+
     const active = new Map();
 
     let ops = {
         active: active
     }
-
     voiceChannel = message.member.voice.channel;
-    if(!voicechannel) return message.channel.send(`Error! You aren't in a voice channel.`)
+    if(!voiceChannel)
+        return message.channel.send("You are not in a voice channel");
+    const permissions = voiceChannel.permissionsFor(message.client.user);
+    if(!permissions.has('CONNECT'))
+        return message.channel.send("You don't have the right permissions");
+    if(!permissions.has('SPEAK'))
+        return message.channel.send("You don't have the right permissions to speak");
 
-    let validate = await ytdl.validateURL(args[0])
+    let validate = await ytdl.validateURL(args[0]);
 
-    if(!validate) return message.channel.send(`That's not a valid URL :(`)
+    if(!validate)
+        return message.channel.send("Enter a valid youtube url please!");
 
-    let info = await ytdl.getInfo(args[0])
+    let info = await ytdl.getInfo(args[0]);
 
     let data = ops.active.get(message.guild.id) || {};
 
-    if(!data.connection)
+    if(!data.connection) 
         data.connection = await message.member.voice.channel.join();
     if(!data.queue)
         data.queue = [];
-    data.guildID = message.guild.id
-
+    data.guildID = message.guild.id;
+    
     data.queue.push({
         songTitle: info.videoDetails.title,
         requester: message.author.tag,
@@ -74,6 +81,6 @@ function finish(client, ops, dispatcher){
 }
 
 module.exports.help = {
-    name: 'youtube',
+    name: 'ytlink',
     aliases: []
 }
