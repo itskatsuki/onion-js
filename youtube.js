@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
     if(!data.dispatcher) play(bot, ops, data);
 
 
-        message.channel.send(`:musical_note: Now Playing **${info.videoDetails.title}** | Requested by **${message.author.username}** :musical_note:`);
+        message.channel.send(`:notes: Now Playing \`${info.videoDetails.title}\` | Requested by \`${message.author.username}\`:onion:`)
 
         
 
