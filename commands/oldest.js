@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 const bot = new Discord.Client();
 
-module.exposrts.eun = async (bot, message, args) => {
+module.exposrts.run = async (bot, message, args) => {
 
     if(!message.guild) return message.channel.send(`This command can only be used in a server.`)
 
