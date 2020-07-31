@@ -7,9 +7,8 @@ module.exports.run = async (client, message, args) => {
   .addField(`Prefix:`, prefix)
   .addField(`Fun:`, `\`\`\`${prefix}meme, ${prefix}snipe, ${prefix}tweet, ${prefix}meme, ${prefix}cleanmeme, ${prefix}8ball, ${prefix}dice, ${prefix}reddit, ${prefix}joke, ${prefix}coinflip, ${prefix}nou, ${prefix}woah, ${prefix}dumbrate, ${prefix}monkey\`\`\``)
   .addField(`Moderation:`, `\`\`\`${prefix}clear, ${prefix}ban, ${prefix}kick\`\`\``)
-  .addField(`Music`, `\`\`\`${prefix}play, ${prefix}stop\`\`\``)
   .addField(`Information:`, `\`\`\`${prefix}help, ${prefix}math, ${prefix}avtar, ${prefix}ping, ${prefix}servercount, ${prefix}about\`\`\``)
-  .addField(`Other:`, `\`\`\`${prefix}status, ${prefix}suggest, ${prefix}uptime\`\`\``)
+  .addField(`Other:`, `\`\`\`${prefix}status, ${prefix}suggest, ${prefix}uptime, ${prefix}poll\`\`\``)
   message.channel.send(helpEmbed)
 }
 
