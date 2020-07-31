@@ -4,7 +4,7 @@ exports.run = (client, message, args) => {
       const embed = new Discord.MessageEmbed()
     .setColor(`#FF00FF`)
     .setTitle(`${message.author.username} just pulled out an Uno reverse card!`)
-    .setImage("https://tenor.com/view/no-you-uno-reverse-card-glitch-gif-16029973")
+    .setImage("https://media.giphy.com/media/Wt6kNaMjofj1jHkF7t/so")
 
     message.channel.send({embed})
 }
